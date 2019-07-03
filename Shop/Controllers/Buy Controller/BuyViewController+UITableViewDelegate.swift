@@ -18,13 +18,6 @@ extension BuyViewController: UITableViewDelegate {
         return 60
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.row == order.count {
-            return false
-        }
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if indexPath.row == order.count {
             return nil
@@ -48,11 +41,14 @@ extension BuyViewController: UITableViewDelegate {
                     if self.orderCount == 0 {
                         self.navigationController?.tabBarItem.badgeValue = nil
                         self.plugView.isHidden = false
+                        UserDefaults.standard.set(0, forKey: "OrderCount")
+                        UserDefaults.standard.synchronize()
                     } else {
                         self.navigationController?.tabBarItem.badgeValue = "\(self.orderCount)"
+                        UserDefaults.standard.set(self.orderCount, forKey: "OrderCount")
+                        UserDefaults.standard.synchronize()
                     }
                     UserDefaults.standard.set(self.orders, forKey: "Orders")
-                    UserDefaults.standard.set(self.orderCount, forKey: "OrderCount")
                     UserDefaults.standard.synchronize()
                 }
                 self.present(alertController, animated: true, completion: nil)
