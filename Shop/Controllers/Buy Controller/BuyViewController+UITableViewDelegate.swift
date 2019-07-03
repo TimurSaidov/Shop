@@ -47,7 +47,7 @@ extension BuyViewController: UITableViewDelegate {
                     self.buyButton.setTitle("Купить за \(self.price) ₽", for: .normal)
                     if self.orderCount == 0 {
                         self.navigationController?.tabBarItem.badgeValue = nil
-                        self.buyButton.isHidden = true
+                        self.plugView.isHidden = false
                     } else {
                         self.navigationController?.tabBarItem.badgeValue = "\(self.orderCount)"
                     }

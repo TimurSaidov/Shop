@@ -286,16 +286,37 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6XI-P2-xRv">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ваша корзина пуста, пожалуйста, откройте меню &quot;Магазин&quot; и выберите понравившийся товар." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dia-uX-Iom">
+                                        <rect key="frame" x="16" y="272" width="382" height="72"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="dia-uX-Iom" secondAttribute="trailing" constant="16" id="RRx-wI-8gs"/>
+                                    <constraint firstItem="dia-uX-Iom" firstAttribute="centerY" secondItem="6XI-P2-xRv" secondAttribute="centerY" constant="-70" id="WTI-5p-5pg"/>
+                                    <constraint firstItem="dia-uX-Iom" firstAttribute="leading" secondItem="6XI-P2-xRv" secondAttribute="leading" constant="16" id="ZrB-yA-SOC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kx1-N7-8by" firstAttribute="trailing" secondItem="bJx-7a-j7R" secondAttribute="trailing" id="LLZ-Yh-EEr"/>
+                            <constraint firstItem="6XI-P2-xRv" firstAttribute="leading" secondItem="kx1-N7-8by" secondAttribute="leading" id="LUy-kU-t4B"/>
                             <constraint firstItem="kx1-N7-8by" firstAttribute="bottom" secondItem="CsW-Te-2bg" secondAttribute="bottom" constant="16" id="PjM-bg-d4g"/>
                             <constraint firstItem="bJx-7a-j7R" firstAttribute="top" secondItem="kx1-N7-8by" secondAttribute="top" id="SgT-LS-kqZ"/>
                             <constraint firstItem="CsW-Te-2bg" firstAttribute="leading" secondItem="kx1-N7-8by" secondAttribute="leading" constant="16" id="XW2-A8-3Ix"/>
                             <constraint firstItem="CsW-Te-2bg" firstAttribute="top" secondItem="bJx-7a-j7R" secondAttribute="bottom" constant="16" id="a8p-F9-zHF"/>
                             <constraint firstItem="CsW-Te-2bg" firstAttribute="height" secondItem="kx1-N7-8by" secondAttribute="height" multiplier="0.07" id="bzw-Hv-qFE"/>
+                            <constraint firstAttribute="bottom" secondItem="6XI-P2-xRv" secondAttribute="bottom" id="eCc-Xg-ZoW"/>
+                            <constraint firstItem="6XI-P2-xRv" firstAttribute="trailing" secondItem="kx1-N7-8by" secondAttribute="trailing" id="jba-W0-pfA"/>
                             <constraint firstItem="kx1-N7-8by" firstAttribute="trailing" secondItem="CsW-Te-2bg" secondAttribute="trailing" constant="16" id="tkE-uo-6Du"/>
+                            <constraint firstItem="6XI-P2-xRv" firstAttribute="top" secondItem="kx1-N7-8by" secondAttribute="top" id="ukP-du-NZs"/>
                             <constraint firstItem="bJx-7a-j7R" firstAttribute="leading" secondItem="kx1-N7-8by" secondAttribute="leading" id="wcD-B3-S1Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kx1-N7-8by"/>
@@ -303,6 +324,7 @@
                     <navigationItem key="navigationItem" id="1H5-A3-ohg"/>
                     <connections>
                         <outlet property="buyButton" destination="CsW-Te-2bg" id="1S0-u9-lu8"/>
+                        <outlet property="plugView" destination="6XI-P2-xRv" id="EBc-Rj-EXw"/>
                         <outlet property="tableView" destination="bJx-7a-j7R" id="hRg-Ad-xfc"/>
                     </connections>
                 </viewController>

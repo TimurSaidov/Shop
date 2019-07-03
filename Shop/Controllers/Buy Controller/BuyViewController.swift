@@ -15,6 +15,7 @@ class BuyViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var plugView: UIView!
     
     
     // MARK: Public Properties
@@ -50,10 +51,11 @@ class BuyViewController: UIViewController {
     
     private func setupView() {
         buyButton.layer.cornerRadius = 5
-        if price != 0 {
+        if price != 0 && orderCount != 0 {
+            plugView.isHidden = true
             buyButton.setTitle("Купить за \(price) ₽", for: .normal)
         } else {
-            buyButton.isHidden = true
+            plugView.isHidden = false
         }
         buyButton.addTarget(self, action: #selector(handleBuyButton), for: .touchUpInside)
     }
@@ -85,9 +87,9 @@ class BuyViewController: UIViewController {
     
     private func updateView() {
         buyButton.isEnabled = true
-        buyButton.isHidden = true
         buyButton.setTitle(nil, for: .normal)
         navigationController?.tabBarItem.badgeValue = nil
         tableView.reloadData()
+        plugView.isHidden = false
     }
 }

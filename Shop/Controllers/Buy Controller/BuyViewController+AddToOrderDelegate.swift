@@ -89,6 +89,17 @@ extension BuyViewController: AddToOrderDelegate {
     }
     
     private func updateTableViewIfNeeded(insertedClothes: Bool, index: Int?) {
+        if plugView != nil {
+            UIView.animate(withDuration: 1.0,
+                           animations: { [weak self] in
+                            self?.plugView.transform = CGAffineTransform(scaleX: 0.10, y: 0.10)
+            },
+                           completion: { [weak self] _ in
+                            guard let self = self else { return }
+                            self.plugView.isHidden = true
+                            self.plugView.transform = CGAffineTransform.identity
+            })
+        }
         if tableView != nil {
             tableView.beginUpdates()
             if insertedClothes {
@@ -98,7 +109,6 @@ extension BuyViewController: AddToOrderDelegate {
                 tableView.reloadRows(at: [IndexPath(row: i, section: 0)], with: .automatic)
             }
             tableView.endUpdates()
-            buyButton.isHidden = false
             buyButton.setTitle("Купить за \(price) ₽", for: .normal)
         }
     }
